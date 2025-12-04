@@ -3,11 +3,14 @@ ROS2 기반 네비게이션, 센서 융합, 동작 명령 전달 등을 모두 M
 
 1. Main Pi는 다음 3대의 Raspberry Pi들과 ZMQ로 연결되어 있음:
 
-  서브                 Pi	포트	              Direction	       내용
-  Lidar RPi	          tcp://*:5000	            SUB	           LiDAR Scan 데이터 (/scan)
-  Motor Control RPi 	tcp://*:6000	            SUB	           Odometry (/odom)
-  Motor Control RPi	  tcp://motor_pi_ip:6001	  PUB	           /cmd_vel 기반 모터 명령 송신
-  Camera RPi	        tcp://*:7000	            SUB	           원본 이미지 스트림 (/raw_image)
+### 🔗 ZMQ Port Connection Table (Main Pi)
+
+| 서브 Pi             | 포트                    | 방향(Direction) | 수신/송신 데이터 내용                |
+|---------------------|-------------------------|------------------|--------------------------------------|
+| **Lidar RPi**       | `tcp://*:5000`          | SUB              | LiDAR Scan 데이터 (`/scan`)         |
+| **Motor Control RPi** | `tcp://*:6000`        | SUB              | Odometry (`/odom`)                  |
+| **Motor Control RPi** | `tcp://motor_pi_ip:6001` | PUB           | Nav2 `/cmd_vel` 기반 모터 명령 송신 |
+| **Camera RPi**      | `tcp://*:7000`          | SUB              | 원본 이미지 스트림 (`/raw_image`)   |
 
 2. Main Pi에서 Nav2 전체를 실행하며 다음 기능을 수행함
 
