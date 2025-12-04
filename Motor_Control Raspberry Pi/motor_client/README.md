@@ -19,11 +19,11 @@ Motor_Control Raspberry Pi
 2. motor_serial_bridge.py
   - Motor RPi <> mcu 사이의 serial bridge 역할
   - 엔코더 데이터 (LF/RF/LR/RR) 수집
-  - ZMQ PUB(6002)으로 motor_odom_pub.py에 전달
+  - ZMQ PUB(5002)으로 motor_odom_pub.py에 전달
 
 3. motor_odom_pub.py
   - 로봇의 odometry를 계산하는 노드
-  - motor_serial_brige.py -> ZMQ SUB(6002)
+  - motor_serial_brige.py -> ZMQ SUB(5002)
   - 엔코더 tick -> meter 변환
 
 - 결과를 x y theta 문자열로 Main RPi에 PUB(5001)
