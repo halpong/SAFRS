@@ -1,0 +1,14 @@
+[Unit]
+Description=SAFRS LiDAR Driver Service
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/SAFRS/Raspberry_Pi_Cluster/Lidar_Raspberry_Pi/lidar_driver
+ExecStart=/home/ubuntu/SAFRS/Raspberry_Pi_Cluster/Lidar_Raspberry_Pi/lidar_driver/start_lidar.sh
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

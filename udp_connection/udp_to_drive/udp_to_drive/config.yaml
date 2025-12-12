@@ -1,0 +1,19 @@
+# ============================================================
+# SAFRS - UDP → ROS2 Bridge Configuration
+# ------------------------------------------------------------
+# This configuration defines:
+#  - UDP listening address/port
+#  - ROS2 topic used for triggering robot actions
+#  - Trigger keywords for UDP → ROS2 conversion
+# ============================================================
+
+udp:
+  ip: "0.0.0.0"        # Listen on all interfaces
+  port: 5006           # PC → RPi UDP port
+
+topic:
+  start_drive: "/start_drive"   # Publishing topic
+
+message:
+  trigger_word: "START"        # Word received from PC
+  publish_word: "start"        # Word published to ROS2 topic

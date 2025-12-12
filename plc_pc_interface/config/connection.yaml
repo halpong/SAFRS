@@ -1,0 +1,24 @@
+# ==============================================================
+# SAFRS PC–PLC–STM32–RPi Gateway - Connection Parameters
+# ==============================================================
+
+# ------------------------------
+# Serial Communication
+# ------------------------------
+serial:
+  plc_port: "COM16"        # RS232 port to PLC
+  plc_baudrate: 9600       # Baud rate for PLC serial link
+
+  stm32_port: "COM5"       # Serial port for STM32
+  stm32_baudrate: 115200   # STM32 firmware UART baud rate
+
+  timeout_pc_plc_ms: 50    # Serial read timeout (ms)
+  timeout_pc_stm32_ms: 100 # Serial timeout for STM32 (ms)
+
+# ------------------------------
+# UDP Communication (PC → RPi)
+# ------------------------------
+udp:
+  rpi_ip: "172.30.1.5"     # Raspberry Pi target IP
+  rpi_port: 5006           # UDP receiving port on RPi
+  udp_timeout_ms: 50       # Optional timeout for UDP operations

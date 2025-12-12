@@ -1,0 +1,14 @@
+[Unit]
+Description=SAFRS MotorPi ROS2 Node Launcher
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/motor_pi
+ExecStart=/home/ubuntu/motor_pi/start_motor_pi.sh
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

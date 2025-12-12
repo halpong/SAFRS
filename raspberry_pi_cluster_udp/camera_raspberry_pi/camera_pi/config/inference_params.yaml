@@ -1,0 +1,27 @@
+# ==============================================================
+# SAFRS Camera Raspberry Pi — Inference Parameters
+# ==============================================================
+
+inference:
+  # ------------------------------------------------------------
+  # Model Paths (Relative to package root)
+  # ------------------------------------------------------------
+  color_class_model: "model/mobilenetv2_ally_enemy_int8.tflite"
+  generic_model: "model/mobilenetv2_int8_v2.tflite"
+  pose_model: "model/pose_landmarker_lite.task"
+
+  # ------------------------------------------------------------
+  # Confidence Settings
+  # ------------------------------------------------------------
+  confidence_threshold: 0.6        # Minimum model confidence
+
+  # ------------------------------------------------------------
+  # Preprocessing Settings
+  # ------------------------------------------------------------
+  input_width: 224                 # Model input width
+  input_height: 224                # Model input height
+
+  # ------------------------------------------------------------
+  # Mode Selection
+  # ------------------------------------------------------------
+  mode: "color_class"              # color_class / pose / generic

@@ -1,0 +1,26 @@
+# ==============================================================
+# SAFRS Camera Pi — Inference Parameters
+# ==============================================================
+inference:
+  # ------------------------------------------------------------
+  # Model Paths (package-relative)
+  # ------------------------------------------------------------
+  color_class_model: "model/mobilenetv2_ally_enemy_int8.tflite"
+  generic_model: "model/mobilenetv2_int8_v2.tflite"
+  pose_model: "model/pose_landmarker_lite.task"
+
+  # ------------------------------------------------------------
+  # Classifier Options
+  # ------------------------------------------------------------
+  confidence_threshold: 0.6         # MobileNet 확신도 임계값
+
+  # ------------------------------------------------------------
+  # Input Resize Settings
+  # ------------------------------------------------------------
+  input_width: 224                  # 모델 입력 너비
+  input_height: 224                 # 모델 입력 높이
+
+  # ------------------------------------------------------------
+  # Mode: Which inference pipeline to use
+  # ------------------------------------------------------------
+  mode: "color_class"               # color_class / pose / generic

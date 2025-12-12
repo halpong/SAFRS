@@ -1,0 +1,13 @@
+# ============================================================
+# SAFRS Motor Pi - Serial Communication Parameters
+# ============================================================
+
+serial:
+  port: "/dev/ttyACM0"           # Arduino Mega serial port
+  baudrate: 115200               # must match Arduino Serial.begin()
+  timeout_ms: 10                 # read timeout
+  reconnect: true                # auto reconnect on failure
+
+motor:
+  command_topic: "/motor/cmd"        # motor command input topic
+  odom_raw_topic: "/motor/odom_raw"  # raw encoder odometry topic

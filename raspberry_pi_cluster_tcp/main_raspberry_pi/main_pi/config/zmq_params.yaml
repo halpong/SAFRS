@@ -1,0 +1,32 @@
+# ============================================
+# SAFRS Main Pi - ZeroMQ Network Parameters
+# All ZMQ bridge nodes running on Main Pi use this file.
+# ============================================
+
+# ------------------------------
+# Camera Pi (A-Pi)
+# ------------------------------
+camera:
+  ip: "172.30.1.5"
+  port: 7000          # Camera Pi → Main Pi (PUB → SUB)
+
+# ------------------------------
+# LiDAR Pi (L-Pi)
+# ------------------------------
+lidar:
+  ip: "172.30.1.14"
+  port: 6000          # LiDAR Pi → Main Pi (PUB → SUB)
+
+# ------------------------------
+# Motor Pi (M-Pi)
+# ------------------------------
+motor:
+  ip: "172.30.1.133"  # Motor Pi address
+  pub_port: 5000      # Main Pi → Motor Pi (PUB → SUB for cmd_vel-like commands)
+
+# ------------------------------
+# Odometry from Motor Pi
+# ------------------------------
+odom:
+  ip: "172.30.1.133"
+  port: 5001          # Motor Pi → Main Pi (PUB → SUB for odometry)

@@ -1,0 +1,124 @@
+# ============================================
+# SAFRS Main Pi - Navigation2 Configuration
+# ============================================
+
+amcl:
+  ros__parameters:
+    use_sim_time: false
+    alpha1: 0.2
+    alpha2: 0.2
+    alpha3: 0.2
+    alpha4: 0.2
+    base_frame_id: "base_link"
+    odom_frame_id: "odom"
+    scan_topic: "/scan"          # LiDAR Pi publishes /scan
+    min_particles: 500
+    max_particles: 2000
+    update_min_d: 0.05
+    update_min_a: 0.05
+    resample_interval: 1
+
+# ------------------------------
+# Map server / saver
+# ------------------------------
+map_server:
+  ros__parameters:
+    use_sim_time: false
+    yaml_filename: "map.yaml"
+
+map_saver:
+  ros__parameters:
+    save_map_timeout: 5000
+
+# ------------------------------
+# Planner / Controller / BT
+# ------------------------------
+planner_server:
+  ros__parameters:
+    expected_planner_frequency: 20.0
+    planner_plugins: ["GridBased"]
+    GridBased:
+      plugin: "nav2_navfn_planner/NavfnPlanner"
+      tolerance: 0.5
+      use_astar: false
+
+controller_server:
+  ros__parameters:
+    controller_plugins: ["FollowPath"]
+    FollowPath:
+      plugin: "nav2_regulated_pure_pursuit_controller/RegulatedPurePursuitController"
+      desired_linear_vel: 0.25
+      max_linear_accel: 0.5
+      lookahead_dist: 0.5
+      transform_tolerance: 0.2
+
+bt_navigator:
+  ros__parameters:
+    use_sim_time: false
+    global_frame: "map"
+    robot_base_frame: "base_link"
+    bt_xml_filename: "navigate_w_replanning_and_recovery.xml"
+
+waypoint_follower:
+  ros__parameters:
+    use_sim_time: false
+    loop_rate: 10
+
+# ------------------------------
+# Local costmap
+# ------------------------------
+local_costmap:
+  local_costmap:
+    ros__parameters:
+      use_sim_time: false
+      global_frame: "odom"
+      robot_base_frame: "base_link"
+
+      update_frequency: 10.0
+      publish_frequency: 10.0
+
+      width: 3.0
+      height: 3.0
+      resolution: 0.05
+      rolling_window: true
+
+      plugins: ["obstacle_layer", "inflation_layer"]
+
+      obstacle_layer:
+        plugin: "nav2_costmap_2d::ObstacleLayer"
+        enabled: true
+
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        cost_scaling_factor: 3.0
+        inflation_radius: 0.55
+
+# ------------------------------
+# Global costmap
+# ------------------------------
+global_costmap:
+  global_costmap:
+    ros__parameters:
+      use_sim_time: false
+      global_frame: "map"
+      robot_base_frame: "base_link"
+
+      update_frequency: 1.0
+      publish_frequency: 1.0
+
+      resolution: 0.05
+
+      plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
+
+      static_layer:
+        plugin: "nav2_costmap_2d::StaticLayer"
+        enabled: true
+
+      obstacle_layer:
+        plugin: "nav2_costmap_2d::ObstacleLayer"
+        enabled: true
+
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        cost_scaling_factor: 3.0
+        inflation_radius: 0.55

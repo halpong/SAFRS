@@ -1,0 +1,24 @@
+# ==============================================================
+# SAFRS PC–PLC–STM32–RPi Gateway - Protocol Configuration
+# ==============================================================
+
+# ------------------------------
+# PLC ENQ Request Frame
+# ------------------------------
+plc_enq:
+  # Hex string representing ENQ frame sent to PLC
+  enq_frame_hex: "0500525353013036254d5730303004"
+
+# ------------------------------
+# Parsing Rules
+# ------------------------------
+parse_rules:
+  frame_end_hex: "03"      # End-of-frame indicator (ETX)
+  numeric_digits: 4        # Extract last N digits for WORD state
+  on_value: "0001"         # Value representing ON (M0 active)
+
+# ------------------------------
+# Behavior Timing
+# ------------------------------
+timing:
+  delay_after_detect_sec: 3    # Delay after detecting ON state

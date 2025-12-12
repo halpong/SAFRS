@@ -1,0 +1,32 @@
+# ============================================================
+# SAFRS Motor Pi - Serial Communication Parameters (UPDATED)
+# ============================================================
+
+serial:
+  # ------------------------------------------------------------
+  # UART Configuration (STM32)
+  # ------------------------------------------------------------
+  port: "/dev/ttyACM0"            # STM32 USB CDC device
+  baudrate: 115200                # must match STM32 settings
+  timeout_ms: 5                   # low latency recommended
+  reconnect: true                 # automatic reconnect on device reset
+
+motor:
+  # ------------------------------------------------------------
+  # ROS Topics
+  # ------------------------------------------------------------
+  cmd_vel_topic: "/cmd_vel"            # D-Pi → C-Pi final velocity command
+  odom_topic: "/odom"                  # final odometry after computation
+  imu_topic: "/imu/data"               # IMU data from STM32
+
+  # Raw encoder topic (optional debug)
+  odom_raw_topic: "/motor/odom_raw"
+
+  # ------------------------------------------------------------
+  # Motor Control Mapping
+  # ------------------------------------------------------------
+  min_pwm: 70                     # motor deadzone compensation
+  max_pwm: 255
+
+  # RPM → PWM scaling
+  max_rpm: 120                    # typical 12V JGB37-520 rpm

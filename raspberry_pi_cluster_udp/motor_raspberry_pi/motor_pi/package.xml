@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd"
+            schematypens="http://www.w3.org/2001/XMLSchema"?>
+
+<package format="3">
+  <!-- ====================================================== -->
+  <!--  Package Information                                  -->
+  <!-- ====================================================== -->
+  <name>motor_pi</name>
+  <version>0.1.0</version>
+  <description>
+    SAFRS Motor Raspberry Pi (C-Pi) package for STM32 motor control,
+    odometry, IMU publishing, and tracking command forwarding.
+  </description>
+
+  <maintainer email="ubuntu@kairos5.local">KAIROS5 JIYUNFARM</maintainer>
+  <license>MIT</license>
+
+  <!-- ====================================================== -->
+  <!--  Build System                                          -->
+  <!-- ====================================================== -->
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- ====================================================== -->
+  <!--  Runtime Dependencies                                 -->
+  <!-- ====================================================== -->
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+
+  <!-- ====================================================== -->
+  <!--  Testing (Optional)                                   -->
+  <!-- ====================================================== -->
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>python3-pytest</test_depend>
+
+  <!-- ====================================================== -->
+  <!--  Export                                               -->
+  <!-- ====================================================== -->
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

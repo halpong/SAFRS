@@ -1,0 +1,21 @@
+# ============================================================
+# SAFRS Motor Pi - Odometry Parameters
+# ============================================================
+
+odom:
+  wheel_radius: 0.033            # meters
+  wheel_base: 0.19               # left-right wheel distance
+  wheel_track: 0.19              # front-back distance for 4WD
+
+  ticks_per_revolution: 1340     # update with actual encoder spec
+  gear_ratio: 1.0                # change if gear reduction exists
+
+  publish_tf: true               # publish odom -> base_link transform
+  frame_id: "odom"
+  child_frame_id: "base_link"
+
+  update_rate: 20.0              # Hz (recommended: 20–50)
+
+  # Odometry filtering
+  odom_smoothing: true
+  smoothing_factor: 0.15         # low-pass filter factor

@@ -1,0 +1,12 @@
+# ============================================================
+# SAFRS Motor Pi - ZeroMQ Communication Parameters
+# ============================================================
+
+zmq:
+  motor_cmd_sub_port: 6000      # subscribe for motor commands
+  odom_pub_port: 6001           # publish odometry
+  host_ip: "0.0.0.0"            # bind address (all interfaces)
+
+topics:
+  motor_cmd: "/motor/cmd"        # command topic from Main Pi
+  odom_topic: "/motor/odom_raw"  # encoder raw odometry output

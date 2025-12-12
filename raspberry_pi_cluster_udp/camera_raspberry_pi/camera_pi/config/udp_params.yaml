@@ -1,0 +1,21 @@
+# ==============================================================
+# SAFRS Camera Raspberry Pi — UDP Network Parameters
+# ==============================================================
+
+udp:
+  # ------------------------------------------------------------
+  # UDP Transmission Settings
+  # ------------------------------------------------------------
+  target_ip: "172.30.1.78"         # Main Pi IP (receiver)
+  target_port: 5006                # UDP port to send camera data
+
+  # ------------------------------------------------------------
+  # Encoding Options
+  # ------------------------------------------------------------
+  jpeg_quality: 70                 # JPEG compression level (0–100)
+  send_mode: "compressed"          # raw / compressed (default: compressed)
+
+  # ------------------------------------------------------------
+  # Packet Size Settings
+  # ------------------------------------------------------------
+  max_packet_size: 65000           # UDP max payload size

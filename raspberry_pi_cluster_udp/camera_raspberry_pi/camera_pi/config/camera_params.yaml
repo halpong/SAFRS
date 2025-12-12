@@ -1,0 +1,24 @@
+# ==============================================================
+# SAFRS Camera Raspberry Pi — Camera Parameters
+# ==============================================================
+
+camera:
+  # ------------------------------------------------------------
+  # Device Settings
+  # ------------------------------------------------------------
+  device_id: 0                     # Default USB camera index
+  resolution_width: 640            # Width resolution
+  resolution_height: 480           # Height resolution
+  fps: 15                          # Frame rate (optimal for RPi)
+
+  # ------------------------------------------------------------
+  # Image Transform Options
+  # ------------------------------------------------------------
+  flip_horizontal: false           # Horizontal flip
+  flip_vertical: false             # Vertical flip
+
+  # ------------------------------------------------------------
+  # Performance Options
+  # ------------------------------------------------------------
+  use_thread: true                 # Capture in separate thread
+  buffer_size: 2                   # Frame buffer size

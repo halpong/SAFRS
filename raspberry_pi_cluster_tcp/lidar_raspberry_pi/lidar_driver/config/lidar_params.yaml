@@ -1,0 +1,46 @@
+lidar_driver:
+  ros__parameters:
+
+    # ------------------------------
+    # Hardware Configuration
+    # ------------------------------
+    port: "/dev/ttyUSB0"           # LiDAR serial device
+    baudrate: 128000               # X4 Pro default
+    frame_id: "laser"              # TF frame name
+
+    # ------------------------------
+    # YDLIDAR Specific
+    # ------------------------------
+    lidar_type: 1                  # 1 = X4 Pro (standard YDLidar SDK)
+    device_type: 0                 # serial device
+    sample_rate: 9                 # kHz
+    scan_frequency: 8              # Hz
+
+    resolution_fixed: true
+    auto_reconnect: true
+    reversion: false               # reverse scan order → false (SAFRS 표준)
+    inverted: false
+    is_single_channel: false
+    intensity: false               # X4 Pro intensity unavailable
+    support_motor_dtr: false
+
+    # ------------------------------
+    # Angular Limits
+    # ------------------------------
+    angle_min: -180.0              # degrees
+    angle_max: 180.0               # degrees
+
+    # ------------------------------
+    # Range Limits
+    # ------------------------------
+    range_min: 0.12
+    range_max: 12.0
+
+    # ------------------------------
+    # ZMQ PUB Settings (SAFRS Cluster Standard)
+    # ------------------------------
+    zmq_pub_ip: "0.0.0.0"
+    zmq_pub_port: 6000
+
+    # JSON 압축
+    enable_compression: true

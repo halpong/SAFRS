@@ -1,0 +1,22 @@
+[Unit]
+Description=SAFRS Camera Pi — Camera Client + Color Classification Node
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/camera_pi
+
+# 실행 스크립트
+ExecStart=/home/ubuntu/camera_pi/start_camera_pi.sh
+
+# 크래시 자동 재시작
+Restart=always
+RestartSec=2
+
+# 로그를 journalctl 로 출력
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
